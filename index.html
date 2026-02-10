@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promise Day</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= ROOT ================= */
+
+:root{
+  --rose:#7a2e3a;
+  --softRose:#a45c68;
+  --gold:#e6c78b;
+  --white:#fffaf7;
+  --gradient:linear-gradient(160deg,#7a2e3a,#c97b84);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--white);
+  color:#3a2a2a;
+  overflow-x:hidden;
+}
+
+section{
+  padding:80px 22px;
+  text-align:center;
+}
+
+h1,h2{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+  padding:14px 28px;
+  border-radius:40px;
+  border:none;
+  background:var(--gradient);
+  color:white;
+  font-size:15px;
+  letter-spacing:.5px;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(122,46,58,.25);
+  transition:.3s;
+}
+
+button:hover{
+  transform:translateY(-3px);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(180deg,#fff,#fdeeee);
+}
+
+.fade{
+  opacity:0;
+  transform:translateY(20px);
+  animation:fade 2.5s forwards;
+}
+
+.fade.delay{
+  animation-delay:2s;
+}
+
+@keyframes fade{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= PROMISE CARDS ================= */
+
+.promise{
+  max-width:520px;
+  margin:40px auto;
+  padding:26px;
+  border-radius:18px;
+  background:white;
+  box-shadow:0 20px 60px rgba(0,0,0,.06);
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.promise.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= HEART VOW ================= */
+
+.heart{
+  font-size:70px;
+  cursor:pointer;
+  color:var(--softRose);
+  transition:.4s;
+  text-shadow:0 0 20px rgba(200,120,130,.4);
+}
+
+.heart.expand{
+  transform:scale(1.25);
+}
+
+.vow{
+  opacity:0;
+  max-width:520px;
+  margin:20px auto;
+  transition:1s;
+}
+
+/* ================= PLAYFUL ================= */
+
+.response{
+  margin-top:14px;
+  opacity:0;
+  transition:.4s;
+}
+
+/* ================= REASSURANCE ================= */
+
+.list{
+  max-width:520px;
+  margin:auto;
+  text-align:left;
+}
+
+.list li{
+  margin:14px 0;
+}
+
+/* ================= HORIZON ================= */
+
+.horizon{
+  height:220px;
+  background:linear-gradient(to top,#7a2e3a,#f3b6a0,#fff);
+  border-radius:12px;
+  margin-bottom:30px;
+}
+
+/* ================= SIGNATURE ================= */
+
+.signature{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+  max-width:650px;
+  margin:auto;
+  border-right:2px solid #333;
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+/* glowing heart */
+
+.glow{
+  font-size:32px;
+  color:var(--softRose);
+  animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{opacity:.6;}
+  50%{opacity:1;}
+}
+
+input{
+  padding:12px;
+  border-radius:30px;
+  border:1px solid #ddd;
+  margin-top:20px;
+  width:80%;
+  max-width:280px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+<h1 class="fade">“Promises are not just words…<br>They are decisions we repeat every day.”</h1>
+
+<h2 class="fade delay" style="margin-top:25px;">
+Today, I want to make a few to you.
+</h2>
+
+<br><br>
+
+<button onclick="document.getElementById('promises').scrollIntoView({behavior:'smooth'})">
+Read My Promises
+</button>
+</section>
+
+<!-- ================= PROMISES ================= -->
+
+<section id="promises">
+
+<h1>My Promises</h1>
+
+<div class="promise">I promise to choose communication over silence — even when conversations are difficult.</div>
+<div class="promise">I promise to stand beside you on your worst days, not just celebrate the bright ones.</div>
+<div class="promise">I promise growth — to reflect, learn, and become better for us.</div>
+<div class="promise">I promise loyalty when life tests our patience.</div>
+<div class="promise">I promise emotional safety — a space where you can be fully yourself.</div>
+<div class="promise">I promise patience during storms, and humility when I am wrong.</div>
+<div class="promise">I promise consistency, because trust is built in the ordinary days.</div>
+<div class="promise">I promise to never let distance create doubt.</div>
+<div class="promise">I promise effort — not occasionally, but intentionally.</div>
+
+</section>
+
+<!-- ================= VOW ================= -->
+
+<section>
+
+<div class="heart" onclick="revealVow()">❤️</div>
+
+<div class="vow" id="vow">
+<p>This is not a temporary feeling.<br>It is a decision.</p>
+<br>
+<h2>I choose you — consciously, respectfully, and fully.</h2>
+</div>
+
+</section>
+
+<!-- ================= PLAYFUL ================= -->
+
+<section>
+
+<h2>If I ever break a promise…</h2>
+
+<br>
+
+<button onclick="reply()">😌 Silent treatment?</button>
+<button onclick="reply()">😂 Extra pampering?</button>
+<button onclick="reply()">🍫 Unlimited chocolates?</button>
+
+<div class="response" id="response">
+Correct answer: All of the above.
+</div>
+
+</section>
+
+<!-- ================= REASSURANCE ================= -->
+
+<section>
+
+<h1>What You Never Have to Doubt</h1>
+
+<ul class="list">
+<li>My respect for you.</li>
+<li>My intentions.</li>
+<li>My effort.</li>
+<li>My honesty.</li>
+<li>My presence when it matters.</li>
+<li>The value you hold in my life.</li>
+</ul>
+
+</section>
+
+<!-- ================= FUTURE ================= -->
+
+<section>
+
+<div class="horizon"></div>
+
+<h2>
+I cannot promise a perfect journey…<br>
+But I promise a partner who will walk it with you.
+</h2>
+
+<br>
+
+<h2>
+Not ahead.<br>
+Not behind.<br>
+Beside you.
+</h2>
+
+</section>
+
+<!-- ================= SIGNATURE ================= -->
+
+<section>
+
+<h2>On this Promise Day…</h2>
+
+<br>
+
+<div class="signature" id="signature"></div>
+
+<br><br>
+
+<div class="glow">❤️</div>
+
+<br>
+
+<input placeholder="Type her name for personalization…" oninput="personalize(this.value)">
+
+</section>
+
+<script>
+
+/* reveal promises on scroll */
+
+const promises=document.querySelectorAll('.promise');
+
+window.addEventListener('scroll',()=>{
+  promises.forEach(p=>{
+    const top=p.getBoundingClientRect().top;
+    if(top<window.innerHeight-80){
+      p.classList.add('show');
+    }
+  })
+});
+
+/* vow */
+
+function revealVow(){
+  document.querySelector('.heart').classList.add('expand');
+  document.getElementById('vow').style.opacity=1;
+
+  if(navigator.vibrate){
+    navigator.vibrate(40);
+  }
+}
+
+/* playful reply */
+
+function reply(){
+  const r=document.getElementById('response');
+  r.style.opacity=1;
+}
+
+/* handwritten animation */
+
+const text="I am yours — in patience, in effort, in growth, and in truth.";
+let i=0;
+
+function type(){
+  if(i<text.length){
+    document.getElementById('signature').innerHTML+=text[i];
+    i++;
+    setTimeout(type,55);
+  }
+}
+
+type();
+
+/* personalization */
+
+function personalize(name){
+  if(name.length>0){
+    document.getElementById('signature').innerHTML=
+    "I am yours, "+name+" — in patience, in effort, in growth, and in truth.";
+  }else{
+    document.getElementById('signature').innerHTML=text;
+  }
+}
+
+</script>
+
+</body>
+</html>
